@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de moeda</title>
+    <link rel="stylesheet" href="conversor-moeda/style.css">
+</head>
+<body>
+    <header>
+        <h1>Conversor de moeda (Tempo real)</h1>
+    </header>
+    <section>
+        <div>
+            <p>
+                Valor: <input type="number" name="valor" id="valor">
+                <input type="radio" name="moeda" id="dolar" checked>
+                <label for="dolar">Dólar</label>
+                <input type="radio" name="moeda" id="euro">
+                <label for="euro">Euro</label>
+                <input type="radio" name="moeda" id="libra">
+                <label for="libra">Libra</label>
+            </p>
+            <p>
+                <input type="button" value="converter" class="botao">
+            </p>
+        </div>
+        <div id="resp">
+
+        </div>
+    </section>
+    <footer>
+        <script src="conversor-moeda/script.js"></script>
+    </footer>
+</body>
+</html>
