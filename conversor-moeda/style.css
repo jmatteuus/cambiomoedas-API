@@ -1,17 +1,32 @@
+header{
+    text-align: center;
+}
 body{
     background-color: whitesmoke;
     font-size: 13px;
     font-family: Arial, sans-serif;
 }
-section{
+#section0{
+    background-color: rgb(218, 218, 218);
+    width: 600px;
+    padding: 25px;
+    margin: auto;
+    border-radius: 15px;
+}
+#section1{
     background-color: white;
     width: 500px;
     padding: 15px;
     margin: auto;
     border-radius: 15px;
 }
-header{
-    text-align: center;
+#section2{
+    background-color: white;
+    width: 500px;
+    padding: 15px;
+    margin: auto;
+    border-radius: 15px;
+    margin-top: 10px;
 }
 .botao{
     background-color: #4CAF50;
@@ -22,4 +37,21 @@ header{
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+.resultados{
+    text-align: center;
+    font-weight: bold;
+}
+#escolher{
+    background-color: white;
+    color: black;
+    font-size: 13px;
+    padding: 6px 22px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#moedas{
+    margin-right: 10px;
 }

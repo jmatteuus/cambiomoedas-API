@@ -8,26 +8,42 @@
 </head>
 <body>
     <header>
-        <h1>Conversor de moeda (Tempo real)</h1>
+        <h1>Conversor de moeda</h1>
     </header>
-    <section>
-        <div>
-            <p>
-                Valor: <input type="number" name="valor" id="valor">
-                <input type="radio" name="moeda" id="dolar" checked>
-                <label for="dolar">Dólar</label>
-                <input type="radio" name="moeda" id="euro">
-                <label for="euro">Euro</label>
-                <input type="radio" name="moeda" id="libra">
-                <label for="libra">Libra</label>
-            </p>
-            <p>
-                <input type="button" value="converter" class="botao">
-            </p>
-        </div>
-        <div id="resp">
-
-        </div>
+    <section id="section0">
+        <section id="section1">
+            <div>
+                <h2>Converter de Real: </h2>
+                <p>
+                    Valor: <input type="number" name="real" id="real">
+                    <input type="radio" name="moeda" id="dolar" checked>
+                    <label for="dolar">Dólar</label>
+                    <input type="radio" name="moeda" id="euro">
+                    <label for="euro">Euro</label>
+                    <input type="radio" name="moeda" id="libra">
+                    <label for="libra">Libra</label>
+                </p>
+                <p>
+                    <input type="button" value="Converter" class="botao" onclick="converterdereal()">
+                </p>
+            </div>
+            <div id="resultado" class="resultados"></div>
+        </section>
+            <section id="section2">
+                <div>
+                    <h2>Converter para Real:</h2>
+                    <p>
+                        Valor: <input type="number" name="moedas" id="moedas">
+                        <select id="escolher">
+                            <option value="dolar" id="dolar2">Dólar</option>
+                            <option value="euro" id="euro2">Euro</option>
+                            <option value="libra" id="libra2">Libra</option>
+                        </select>
+                    </p>
+                    <input type="button" value="Converter" class="botao" onclick="converterparareal()">
+                </div>
+                <div id="resultado2" class="resultados"></div>
+            </section>
     </section>
     <footer>
         <script src="conversor-moeda/script.js"></script>
