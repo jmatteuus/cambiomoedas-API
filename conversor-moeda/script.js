@@ -21,15 +21,15 @@ async function converterdereal(){
 
     if(document.getElementById('dolar').checked){
         convertido = real / taxas.dolar;
-        resultado.innerHTML = `R$${real} Reais em Dólar é US$${convertido.toFixed(2)}`;
+        resultado.textContent = `R$${real} Reais em Dólar é US$${convertido.toFixed(2)}`;
     }
     if(document.getElementById('euro').checked){
         convertido = real / taxas.euro;
-        resultado.innerHTML = `R$${real} Reais em Euro é €${convertido.toFixed(2)}`;
+        resultado.textContent = `R$${real} Reais em Euro é €${convertido.toFixed(2)}`;
     }
     if(document.getElementById('libra').checked){
         convertido = real / taxas.libra;
-        resultado.innerHTML = `R$${real} Reais em Libra é £${convertido.toFixed(2)}`;
+        resultado.textContent = `R$${real} Reais em Libra é £${convertido.toFixed(2)}`;
     }
 }
 
@@ -47,16 +47,16 @@ async function converterparareal(){
 
     if(moeda == 'dolar'){
         convertido = valor * taxas.dolar;
-        resultado2.innerHTML = `US$${valor} Dólar em Reais é R$${convertido.toFixed(2)}`;
+        resultado2.textContent = `US$${valor} Dólar em Reais é R$${convertido.toFixed(2)}`;
     }
     
     if(moeda == 'euro'){
         convertido = valor * taxas.euro;
-        resultado2.innerHTML = `€${valor} Euro em Reais é R$${convertido.toFixed(2)}`;
+        resultado2.textContent = `€${valor} Euro em Reais é R$${convertido.toFixed(2)}`;
     }
 
     if(moeda == 'libra'){
         convertido = valor * taxas.libra;
-        resultado2.innerHTML = `£${valor} Libra em Reais é R$${convertido.toFixed(2)}`;
+        resultado2.textContent = `£${valor} Libra em Reais é R$${convertido.toFixed(2)}`;
     }
 }
