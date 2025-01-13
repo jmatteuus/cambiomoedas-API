@@ -1,57 +1,141 @@
-header{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f1f1f1, #e0e0e0);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+
+header {
     text-align: center;
+    margin-bottom: 30px;
 }
-body{
-    background-color: whitesmoke;
-    font-size: 13px;
-    font-family: Arial, sans-serif;
-}
-#section0{
-    background-color: rgb(218, 218, 218);
-    width: 600px;
-    padding: 25px;
+
+
+#section0 {
+    background-color: #fff;
+    width: 100%;
+    max-width: 650px;
+    padding: 30px;
     margin: auto;
-    border-radius: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-#section1{
-    background-color: white;
-    width: 500px;
-    padding: 15px;
-    margin: auto;
-    border-radius: 15px;
+
+#section1, #section2 {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-#section2{
-    background-color: white;
-    width: 500px;
-    padding: 15px;
-    margin: auto;
-    border-radius: 15px;
-    margin-top: 10px;
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
 }
-.botao{
+
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+input[type="number"], select, .botao {
+    width: 100%;
+    max-width: 250px;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus, select:focus, .botao:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+input[type="radio"] {
+    margin: 0 5px;
+}
+
+
+.botao {
     background-color: #4CAF50;
     color: white;
-    font-size: 13px;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.resultados{
-    text-align: center;
-    font-weight: bold;
-}
-#escolher{
-    background-color: white;
-    color: black;
-    font-size: 13px;
-    padding: 6px 22px;
-    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-#moedas{
-    margin-right: 10px;
+.botao:hover {
+    background-color: #45a049;
+}
+
+.botao:active {
+    background-color: #388e3c;
+}
+
+
+.resultados {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4CAF50;
+}
+
+
+#escolher {
+    width: 100%;
+    max-width: 250px;
+    font-size: 1rem;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+}
+
+#escolher option {
+    padding: 10px;
+}
+
+
+@media (max-width: 768px) {
+    #section0 {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #section1, #section2 {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .botao {
+        max-width: 100%;
+    }
+
+    input[type="number"], select {
+        max-width: 100%;
+    }
 }
