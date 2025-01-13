@@ -38,11 +38,11 @@ document.querySelector('#btn1').onclick = async function() {
     if(!validarValor(real, 'Coloque um valor válido em reais!')) return;
 
     if (document.getElementById('dolar').checked) {
-        resultado.textContent = `R$${real} reais em dolar é ${calculo(real, taxas.dolar)}`
+        resultado.textContent = `R$${real} Reais em Dolar é $${calculo(real, taxas.dolar)}`
     }else if (document.getElementById('euro').checked) {
-        resultado.textContent = `R$${real} reais em euro é ${calculo(real, taxas.euro)}`
+        resultado.textContent = `R$${real} Reais em Euro é €${calculo(real, taxas.euro)}`
     }else if (document.getElementById('libra').checked) {
-        resultado.textContent = `R$${real} reais em libra é ${calculo(real, taxas.libra)}`
+        resultado.textContent = `R$${real} Reais em Libra é £${calculo(real, taxas.libra)}`
     }
 }
 
@@ -52,24 +52,20 @@ document.querySelector('#btn2').onclick = async function() {
     if(!taxas) return;
 
     let moeda = document.getElementById('escolher').value;
-    let valor = document.getElementById('moedas').value;
-    let convertido = 0;
+    let valor = parseFloat(document.getElementById('moedas').value);
     let resultado2 = document.getElementById('resultado2');
 
-    if(!validarValor(moeda, 'Coloque um valor válido da sua moeda escolhida')) return;
+    if(!validarValor(valor, 'Coloque um valor válido da sua moeda escolhida')) return;
 
     if (moeda == 'dolar') {
-        convertido = valor * taxas.dolar;
-        resultado2.textContent = `US$${valor} Dólar em Reais é R$${convertido.toFixed(2)}`;
+        resultado2.textContent = `$${valor} Eolar em Reais é R$${calculo(valor, taxas.dolar)}`
     }
 
     if (moeda == 'euro') {
-        convertido = valor * taxas.euro;
-        resultado2.textContent = `€${valor} Euro em Reais é R$${convertido.toFixed(2)}`;
+        resultado2.textContent = `€${valor} Euro em Reais é R$${calculo(valor, taxas.euro)}`
     }
 
     if (moeda == 'libra') {
-        convertido = valor * taxas.libra;
-        resultado2.textContent = `£${valor} Libra em Reais é R$${convertido.toFixed(2)}`;
+        resultado2.textContent = `£${valor} Libra em Reais é R${calculo(valor, taxas.libra)}`;
     }
 }
