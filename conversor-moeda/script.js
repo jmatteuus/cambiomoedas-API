@@ -24,7 +24,7 @@ function validarValor(moeda, mensagem) {
 
 function calculo(valor, taxa) {
     const convertido = valor / taxa;
-    return `${convertido.toFixed(2)}`;
+    return (valor / taxa).toFixed(2);
 }
 
 
