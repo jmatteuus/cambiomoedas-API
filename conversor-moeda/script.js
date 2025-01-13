@@ -14,16 +14,23 @@ async function obterTaxasDeCambio() {
 }
 
 
+function validarValor(moeda, mensagem){
+    if (isNaN(moeda) || moeda <= 0) {
+        alert(mensagem);
+        return;
+    }
+};
+
+
 document.querySelector('#btn1').onclick = async function() {
     const taxas = await obterTaxasDeCambio();
+    if(!taxas) return;
+
     let resultado = document.getElementById('resultado');
     let real = document.getElementById('real').value;
     let convertido = 0;
 
-    if (isNaN(real) || real <= 0) {
-        alert('Coloque algum valor');
-        return;
-    }
+    if(!validarValor(real, 'Coloque um valor válido em reais!')) return;
 
     if (document.getElementById('dolar').checked) {
         convertido = real / taxas.dolar;
@@ -42,15 +49,14 @@ document.querySelector('#btn1').onclick = async function() {
 
 document.querySelector('#btn2').onclick = async function() {
     const taxas = await obterTaxasDeCambio();
+    if(!taxas) return;
+
     let moeda = document.getElementById('escolher').value;
     let valor = document.getElementById('moedas').value;
     let convertido = 0;
     let resultado2 = document.getElementById('resultado2');
 
-    if (isNaN(valor) || valor <= 0) {
-        alert('Digite algum valor');
-        return;
-    }
+    if(!validarValor(moeda, 'Coloque um valor válido da sua moeda escolhida')) return;
 
     if (moeda == 'dolar') {
         convertido = valor * taxas.dolar;
