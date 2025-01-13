@@ -14,7 +14,7 @@ async function obterTaxasDeCambio() {
 }
 
 
-function validarValor(moeda, mensagem){
+function validarValor(moeda, mensagem) {
     if (isNaN(moeda) || moeda <= 0) {
         alert(mensagem);
         return false;
@@ -22,50 +22,53 @@ function validarValor(moeda, mensagem){
     return true;
 };
 
-function calculo(valor, taxa){
+function calculo(valor, taxa) {
     const convertido = valor / taxa;
     return `${convertido.toFixed(2)}`;
 }
 
 
-document.querySelector('#btn1').onclick = async function() {
+document.querySelector('#btn1').onclick = async function () {
     const taxas = await obterTaxasDeCambio();
-    if(!taxas) return;
+    if (!taxas) return;
 
     let resultado = document.getElementById('resultado');
     let real = parseFloat(document.getElementById('real').value);
 
-    if(!validarValor(real, 'Coloque um valor válido em reais!')) return;
+    if (!validarValor(real, 'Coloque um valor válido em reais!')) return;
 
     if (document.getElementById('dolar').checked) {
         resultado.textContent = `R$${real} Reais em Dolar é $${calculo(real, taxas.dolar)}`
-    }else if (document.getElementById('euro').checked) {
+    } else if (document.getElementById('euro').checked) {
         resultado.textContent = `R$${real} Reais em Euro é €${calculo(real, taxas.euro)}`
-    }else if (document.getElementById('libra').checked) {
+    } else if (document.getElementById('libra').checked) {
         resultado.textContent = `R$${real} Reais em Libra é £${calculo(real, taxas.libra)}`
     }
 }
 
 
-document.querySelector('#btn2').onclick = async function() {
+document.querySelector('#btn2').onclick = async function () {
     const taxas = await obterTaxasDeCambio();
-    if(!taxas) return;
+    if (!taxas) return;
 
     let moeda = document.getElementById('escolher').value;
     let valor = parseFloat(document.getElementById('moedas').value);
     let resultado2 = document.getElementById('resultado2');
 
-    if(!validarValor(valor, 'Coloque um valor válido da sua moeda escolhida')) return;
+    if (!validarValor(valor, 'Coloque um valor válido da sua moeda escolhida')) return;
 
-    if (moeda == 'dolar') {
-        resultado2.textContent = `$${valor} Eolar em Reais é R$${calculo(valor, taxas.dolar)}`
-    }
+    switch (moeda) {
+        case 'dolar':
+            resultado2.textContent = `$${valor} Dolar em Reais é R$${calculo(valor, taxas.dolar)}`
+            break;
+        case 'euro':
+            resultado2.textContent = `€${valor} Euro em Reais é R$${calculo(valor, taxas.euro)}`
+            break;
+        case 'libra':
+            resultado2.textContent = `£${valor} Libra em Reais é R${calculo(valor, taxas.libra)}`;
 
-    if (moeda == 'euro') {
-        resultado2.textContent = `€${valor} Euro em Reais é R$${calculo(valor, taxas.euro)}`
-    }
-
-    if (moeda == 'libra') {
-        resultado2.textContent = `£${valor} Libra em Reais é R${calculo(valor, taxas.libra)}`;
+            break;
+        default:
+            alert('Selecione uma moeda válida!');
     }
 }
