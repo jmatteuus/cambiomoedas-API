@@ -21,6 +21,11 @@ function validarValor(moeda, mensagem){
     }
 };
 
+function calculo(valor, taxa){
+    const convertido = valor / taxa;
+    return `${convertido.toFixed(2)}`;
+}
+
 
 document.querySelector('#btn1').onclick = async function() {
     const taxas = await obterTaxasDeCambio();
@@ -28,21 +33,15 @@ document.querySelector('#btn1').onclick = async function() {
 
     let resultado = document.getElementById('resultado');
     let real = document.getElementById('real').value;
-    let convertido = 0;
 
     if(!validarValor(real, 'Coloque um valor válido em reais!')) return;
 
     if (document.getElementById('dolar').checked) {
-        convertido = real / taxas.dolar;
-        resultado.textContent = `R$${real} Reais em Dólar é US$${convertido.toFixed(2)}`;
-    }
-    if (document.getElementById('euro').checked) {
-        convertido = real / taxas.euro;
-        resultado.textContent = `R$${real} Reais em Euro é €${convertido.toFixed(2)}`;
-    }
-    if (document.getElementById('libra').checked) {
-        convertido = real / taxas.libra;
-        resultado.textContent = `R$${real} Reais em Libra é £${convertido.toFixed(2)}`;
+        resultado.textContent = `R$${real} em dolar é ${calculo(real, taxas.dolar)}`
+    }else if (document.getElementById('euro').checked) {
+        resultado.textContent = `R$${real} em euro é ${calculo(real, taxas.euro)}`
+    }else if (document.getElementById('libra').checked) {
+        resultado.textContent = `R$${real} em libra é ${calculo(real, taxas.libra)}`
     }
 }
 
