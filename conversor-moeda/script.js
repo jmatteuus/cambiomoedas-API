@@ -14,8 +14,7 @@ async function obterTaxasDeCambio() {
 }
 
 
-const btn1 = document.querySelector('#btn1');
-btn1.onclick = async function converterdereal() {
+document.querySelector('#btn1').onclick = async function() {
     const taxas = await obterTaxasDeCambio();
     let resultado = document.getElementById('resultado');
     let real = document.getElementById('real').value;
@@ -41,8 +40,7 @@ btn1.onclick = async function converterdereal() {
 }
 
 
-const btn2 = document.querySelector('#btn2');
-btn2.onclick = async function converterparareal() {
+document.querySelector('#btn2').onclick = async function() {
     const taxas = await obterTaxasDeCambio();
     let moeda = document.getElementById('escolher').value;
     let valor = document.getElementById('moedas').value;
