@@ -17,8 +17,9 @@ async function obterTaxasDeCambio() {
 function validarValor(moeda, mensagem){
     if (isNaN(moeda) || moeda <= 0) {
         alert(mensagem);
-        return;
+        return false;
     }
+    return true;
 };
 
 function calculo(valor, taxa){
@@ -32,16 +33,16 @@ document.querySelector('#btn1').onclick = async function() {
     if(!taxas) return;
 
     let resultado = document.getElementById('resultado');
-    let real = document.getElementById('real').value;
+    let real = parseFloat(document.getElementById('real').value);
 
     if(!validarValor(real, 'Coloque um valor válido em reais!')) return;
 
     if (document.getElementById('dolar').checked) {
-        resultado.textContent = `R$${real} em dolar é ${calculo(real, taxas.dolar)}`
+        resultado.textContent = `R$${real} reais em dolar é ${calculo(real, taxas.dolar)}`
     }else if (document.getElementById('euro').checked) {
-        resultado.textContent = `R$${real} em euro é ${calculo(real, taxas.euro)}`
+        resultado.textContent = `R$${real} reais em euro é ${calculo(real, taxas.euro)}`
     }else if (document.getElementById('libra').checked) {
-        resultado.textContent = `R$${real} em libra é ${calculo(real, taxas.libra)}`
+        resultado.textContent = `R$${real} reais em libra é ${calculo(real, taxas.libra)}`
     }
 }
 
