@@ -43,7 +43,7 @@ btn2.onclick = async function converterparareal(){
     let valor = document.getElementById('moedas').value;
     let convertido = 0;
     let resultado2 = document.getElementById('resultado2');
-
+ 
     if(isNaN(valor) || valor <= 0){
         alert('Digite algum valor');
         return;
